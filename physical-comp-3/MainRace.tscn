@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bghx0va6i1e1r"]
+
+[ext_resource type="Script" uid="uid://dlkr23rr6tqhv" path="res://main_race.gd" id="1_joa2f"]
+[ext_resource type="Texture2D" uid="uid://cwbrg7yonb8qh" path="res://RobloxScreenShot20240316_021918359.png" id="2_8f73e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1d3v7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_joa2f"]
+
+[sub_resource type="Curve3D" id="Curve3D_8f73e"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.059567634, 0, -3.0111058, 0, 0, 0, 0, 0, 0, -1.4764526, 0, -2.656294, 0, 0, 0, 0, 0, 0, -2.186076, 0, -1.1831517, 0, 0, 0, 0, 0, 0, -2.248954, 0, 0.5370113, 0, 0, 0, 0, 0, 0, -2.1815848, 0, 1.8664328, 0, 0, 0, 0, 0, 0, -1.3731527, 0, 2.5625823, 0, 0, 0, 0, 0, 0, -0.3311742, 0, 2.7961295, 0, 0, 0, 0, 0, 0, 1.155442, 0, 2.3559835, 0, 0, 0, 0, 0, 0, 1.4922888, 0, 1.2601088, 0, 0, 0, 0, 0, 0, 2.0132782, 0, 0.029495854, 0, 0, 0, 0, 0, 0, 1.6315186, 0, -1.5514373, 0, 0, 0, 0, 0, 0, 0.67038316, 0, -2.8134892),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn27o"]
+atlas = ExtResource("2_8f73e")
+
+[node name="Node3D" type="Node3D" unique_id=1224466429]
+script = ExtResource("1_joa2f")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=924970034]
+transform = Transform3D(1, 0, 0, 0, -0.52732664, 0.84966266, 0, -0.84966266, -0.52732664, 0, 3.635295, -6.9717116)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=54900473]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1322425691]
+transform = Transform3D(5.5111485, 0, 0, 0, 0.3846407, 0, 0, 0, 7.138879, 0, 0, 0)
+mesh = SubResource("BoxMesh_1d3v7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=535142395]
+transform = Transform3D(5.5111485, 0, 0, 0, 0.3846407, 0, 0, 0, 7.138879, 0, 0, 0)
+shape = SubResource("BoxShape3D_joa2f")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=532766605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3928952, 0)
+curve = SubResource("Curve3D_8f73e")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=887633317]
+transform = Transform3D(-0.22506724, 0, 0.97434205, 0, 0.9999997, 0, -0.97434205, 0, -0.22506724, 0.059567634, 0, -3.0111058)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Path3D/PathFollow3D" unique_id=1455073064]
+transform = Transform3D(-0.22506765, 0, -0.9743437, 0, 1.0000004, 0, 0.9743442, 0, -0.22506775, 0.14881968, -0.2366004, -0.026759624)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/StaticBody3D2" unique_id=2144317976]
+transform = Transform3D(0.8552879, 0, 0, 0, 0.3846407, 0, 0, 0, 0.8483336, 0, 0, 0)
+shape = SubResource("BoxShape3D_joa2f")
+
+[node name="Sprite3D" type="Sprite3D" parent="Path3D/PathFollow3D/StaticBody3D2" unique_id=1840935089]
+transform = Transform3D(0.060258925, 0, 0, 0, 0.060258925, 0, 0, 0, 0.9999999, 0, 0, 0)
+texture = SubResource("AtlasTexture_wn27o")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1237048553]
+transform = Transform3D(1, 0, 0, 0, 0.826, 0.5636703, 0, -0.5636703, 0.826, 0, 2.9580884, 4.767207)
